@@ -1,0 +1,6 @@
+iptables -A FORWARD -i eth3 -o eth1 -s 175.189.3.10 -p tcp --destination-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i eth1 -o eth3 -d 175.189.3.10 -p tcp --source-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i eth3 -o eth2 -s 175.189.3.10 -p tcp --destination-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i eth2 -o eth3 -d 175.189.3.10 -p tcp --source-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i eth3 -o eth0 -s 175.189.3.10 -p tcp --destination-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -i eth0 -o eth3 -d 175.189.3.10 -p tcp --source-port 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
